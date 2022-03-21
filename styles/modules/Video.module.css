@@ -1,0 +1,8 @@
+.video {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.video figure {
+  padding: 5vh 0;
+}

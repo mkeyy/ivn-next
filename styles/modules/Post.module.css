@@ -1,0 +1,8 @@
+.post {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.post img {
+  max-height: 35vh;
+}

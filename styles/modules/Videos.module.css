@@ -1,0 +1,27 @@
+.videos {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5vh 5vw;
+}
+
+.video:hover {
+  text-decoration: none;
+}
+
+.video:hover h2 {
+  text-decoration: underline;
+}
+
+.video img {
+  height: 35vh;
+}
+
+.video h2 {
+  margin: 2vh 0;
+}
+
+@media (min-width: 576px) {
+  .videos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
