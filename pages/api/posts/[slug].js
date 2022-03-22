@@ -1,6 +1,6 @@
 import { fetchAPI } from "../../../lib/api";
 
-export default async (req, res) => {
+export default async function getPost(req, res) {
   const {
     query: { slug },
   } = req;
@@ -25,4 +25,4 @@ export default async (req, res) => {
   );
 
   res.json(data.post);
-};
+}

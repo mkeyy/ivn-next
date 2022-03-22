@@ -1,21 +1,24 @@
-import {fetchAPI} from '../../../lib/api';
+import { fetchAPI } from "../../../lib/api";
 
-export default async (req, res) => {
-    const {query: {slug}} = req;
-    const uri = slug.join('/');
+export default async function getPage(req, res) {
+  const {
+    query: { slug },
+  } = req;
+  const uri = slug.join("/");
 
-    const data = await fetchAPI(
-        `
+  const data = await fetchAPI(
+    `
             query getPage($id: ID!) {
                 page(id: $id, idType: URI) {
                     title
                     content
                 }
             }
-        `, {
-            variables: {id: uri}
-        }
-    )
+        `,
+    {
+      variables: { id: uri },
+    }
+  );
 
-    res.json(data.page);
+  res.json(data.page);
 }
