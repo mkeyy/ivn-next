@@ -54,7 +54,7 @@ export async function getStaticPaths() {
     `);
 
   return {
-    paths: allPages.pages.edges.map(({ node }) => `${node.uri}`) || [],
+    paths: allPages.pages.edges.map(({ node }) => `/${node.slug}`) || [],
     fallback: true,
   };
 }
