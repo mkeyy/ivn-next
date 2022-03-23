@@ -2,7 +2,6 @@ import Head from "next/head";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Link from "next/link";
-import Image from "next/image";
 import { getAllPosts, getMenuLinks } from "../../lib/api";
 
 import styles from "../../styles/modules/Blog.module.css";
@@ -27,14 +26,12 @@ export default function Blog({ allPosts: { nodes }, menuItems }) {
           {posts.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug}>
               <a className={styles.post}>
-                <Image
+                <img
                   src={
                     post.featuredImage?.node.mediaItemUrl
                       ? post.featuredImage?.node.mediaItemUrl
                       : "/placeholder.png"
                   }
-                  width={540}
-                  height={345}
                   alt={post.title}
                 />
                 <h2>{post.title}</h2>

@@ -2,7 +2,6 @@ import Head from "next/head";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Link from "next/link";
-import Image from "next/image";
 import { getAllVideos, getMenuLinks } from "../../lib/api";
 
 import styles from "../../styles/modules/Videos.module.css";
@@ -27,14 +26,12 @@ export default function Videos({ allVideos: { nodes }, menuItems }) {
           {videos.map((video) => (
             <Link href={`/videos/${video.slug}`} key={video.slug}>
               <a className={styles.video}>
-                <Image
+                <img
                   src={
                     video.featuredImage?.node.mediaItemUrl
                       ? video.featuredImage?.node.mediaItemUrl
                       : "./placeholder.png"
                   }
-                  width={540}
-                  height={345}
                   alt={video.title}
                 />
                 <h2>{video.title}</h2>

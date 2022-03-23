@@ -2,7 +2,6 @@ import Head from "next/head";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import useSWR from "swr";
-import Image from "next/image";
 import { fetchAPI, getMenuLinks } from "../../lib/api";
 
 import styles from "../../styles/modules/Post.module.css";
@@ -27,12 +26,7 @@ export default function Post({ slug, menuItems }) {
       <main className={styles.post}>
         <h1>{data.title}</h1>
         {data.featuredImage?.node.mediaItemUrl ? (
-          <Image
-            src={data.featuredImage?.node.mediaItemUrl}
-            width={885}
-            height={345}
-            alt={data.title}
-          />
+          <img src={data.featuredImage?.node.mediaItemUrl} alt={data.title} />
         ) : null}
         <div dangerouslySetInnerHTML={{ __html: data.content }} />
       </main>
